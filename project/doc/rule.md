@@ -14,10 +14,10 @@
   - rule.md 開發規範
 - nginx
 - src
-  - api : router 資料夾
+  - router : router 資料夾
+    - api : 對外接口的資料夾
     - auth : 處理登入登出的資料夾
     - dc : 內網接口的資料夾
-    - xxxRouter.js
     - index.js 載入 router
   - common : 放工具的資料夾
     - 104Tool : 串接104api

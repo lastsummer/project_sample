@@ -11,8 +11,6 @@ echo "NODE_ENV=$NODE_ENV"
 
 export CAN_DEPLOY=false
 
-
-
 if [[ ${TRAVIS_BRANCH} == '#replace-labBranch#' ]]; then
   export DEPLOY_TARGET=dev
   export CAN_DEPLOY=true
@@ -21,6 +19,8 @@ if [[ ${TRAVIS_BRANCH} == '#replace-labBranch#' ]]; then
   export AWS_ACCESS_KEY_ID=$dev_access_key_id
   export AWS_SECRET_ACCESS_KEY=$dev_secret_access_key
   export app_bucket='#replace-bucketName#-dev-api'
+
+  #replace-config-dev#
 
  elif [[ ${TRAVIS_BRANCH} == "#replace-stagingBranch#" ]]; then
    export DEPLOY_TARGET=stg
@@ -31,6 +31,8 @@ if [[ ${TRAVIS_BRANCH} == '#replace-labBranch#' ]]; then
    export AWS_SECRET_ACCESS_KEY=$stg_secret_access_key
    export app_bucket='#replace-bucketName#-staging-api'
 
+   #replace-config-staging#
+
 elif [[ ${TRAVIS_BRANCH} == "#replace-prodBranch#" ]]; then
    export DEPLOY_TARGET=prod
    export CAN_DEPLOY=true
@@ -39,5 +41,7 @@ elif [[ ${TRAVIS_BRANCH} == "#replace-prodBranch#" ]]; then
    export AWS_ACCESS_KEY_ID=$prod_access_key_id
    export AWS_SECRET_ACCESS_KEY=$prod_secret_access_key
    export app_bucket='#replace-bucketName#-prod-api'
+
+   #replace-config-prod#
   
 fi
