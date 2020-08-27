@@ -1,0 +1,6 @@
+#!/bin/sh
+
+rm -rf /opt/web
+ln -s /opt/codedeploy-agent/deployment-root/${DEPLOYMENT_GROUP_ID}/${DEPLOYMENT_ID}/deployment-archive /opt/web
+
+systemctl restart web

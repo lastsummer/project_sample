@@ -1,0 +1,19 @@
+{
+  "name": "104z-node-init",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "104z-node": "./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "color": "^3.1.2",
+    "commander": "^5.1.0",
+    "inquirer": "^7.3.2"
+  }
+}
