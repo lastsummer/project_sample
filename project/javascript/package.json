@@ -1,0 +1,38 @@
+{
+  "name": "#replace-projectName#",
+  "version": "1.0.0",
+  "description": "#replace-projectName#",
+  "main": "index.js",
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "dev": "npx cpx \"config/local/development.js\" \"config\" &&  NODE_ENV=development webpack",
+    "debug": "env DEBUG='api:*' npm run dev",
+    "run:dev": "if test \"$NODE_ENV\" = \"development\" ; then NODE_ENV=development nodemon build/main.js ; fi ",
+    "start": "NODE_ENV=production node build/main.js ",
+    "test": "env NODE_ENV=development npx jest",
+    "travis": "npx rimraf dist && mkdir -p dist && zip -r dist/server.zip . -x@exclude.lst"
+  },
+  "author": "104z",
+  "license": "",
+  "devDependencies": {
+    "lint-staged": "^10.2.11",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.10",
+    "webpack-node-externals": "^1.7.2",
+    "webpack-shell-plugin": "^0.5.0"
+  },
+  "dependencies": {
+    "config": "^3.2.5",
+    "os": "^0.1.1",
+    "cluster": "^0.7.7",
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "helmet": "^3.21.2",
+    "morgan": "^1.9.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}

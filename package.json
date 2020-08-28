@@ -12,8 +12,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^4.1.0",
     "color": "^3.1.2",
     "commander": "^5.1.0",
-    "inquirer": "^7.3.2"
+    "inquirer": "^7.3.2",
+    "node-emoji": "^1.10.0",
+    "ora": "^5.0.0"
   }
 }

@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
-const program = require('commander');
-const inquirer = require('inquirer');
-const value = require('./setting/value');
-const fs = require('./setting/fs');
-const createFile = require('./setting/createFile');
+const program = require('commander')
+const inquirer = require('inquirer')
+const ora = require('ora')
+
+const value = require('./lib/value')
+const fs = require('./lib/fs');
+const createFile = require('./lib/createFile')
 
 const questions = [
   { type: 'input', name: 'projectName', message: 'Project Name'},
@@ -17,10 +19,30 @@ const questions = [
   { type: 'input', name: 'configName', message: 'S3設定檔的資料夾名稱', when: (answers) => answers.configType === 'S3'}
 ]
 
+/*
 inquirer
   .prompt(questions)
   .then(function (answers) {
     fs.mkdirSync(answers.projectName)
     createFile.createProject(answers, __dirname)
-    // console.log(answers);
+    console.log(answers)
 })
+*/
+
+async function main(){
+  const askEmoji = await inquirer
+  .prompt(questions)
+  fs.mkdirSync(askEmoji.projectName)
+  await createFile.createProject(askEmoji, __dirname)
+}
+main()
+
+async function showLoading(){
+  const spinner = ora('Loading unicorns').start();
+  spinner.succeed();
+} 
+// showLoading()
+
+
+
+

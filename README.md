@@ -4,15 +4,20 @@
 - npm install
 - npm link
 
+## 執行
+- 104z-node
+
 ## 做的事情
 - 建立 travis
 - 建立 .vscode
 - 建立 bin
 - 建立 config
 - 建立 doc
+- 建立 nginx
+- 依照選擇的Script Type 建立專案
 
 ## CI bucket name
-- lab：<your-project-name>-dev-api
+- lab：<your-project-name>-dev-api
 - staging：<your-project-name>-staging-api
 - 正式機：<your-project-name>-prod-api
 
@@ -29,7 +34,7 @@
 
 ## server port (預設)
 - local：6565
-- lab：3000
+- lab：3000
 - staging：3000
 - 正式機：3000
 
