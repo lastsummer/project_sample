@@ -2,7 +2,6 @@
 
 const program = require('commander')
 const inquirer = require('inquirer')
-const ora = require('ora')
 
 const value = require('./lib/value')
 const fs = require('./lib/fs');
@@ -29,20 +28,27 @@ inquirer
 })
 */
 
-async function main(){
+async function createProject(){
   const askEmoji = await inquirer
   .prompt(questions)
   fs.mkdirSync(askEmoji.projectName)
   await createFile.createProject(askEmoji, __dirname)
 }
+// main()
+
+const version = '1.0.0'
+async function main(){
+  program.version(version)
+  .usage('[options]')
+  .parse(process.argv)
+  if(process.argv[2]==='v'){
+    console.log(version)
+  }else{
+    createProject()
+  }
+}
+
 main()
-
-async function showLoading(){
-  const spinner = ora('Loading unicorns').start();
-  spinner.succeed();
-} 
-// showLoading()
-
 
 
 
