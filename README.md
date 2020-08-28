@@ -17,14 +17,14 @@
 - 依照選擇的Script Type 建立專案
 
 ## CI bucket name
-- lab：<your-project-name>-dev-api
-- staging：<your-project-name>-staging-api
-- 正式機：<your-project-name>-prod-api
+- lab： < your-project-name > -dev-api
+- staging： < your-project-name > -staging-api
+- 正式機： < your-project-name > -prod-api
 
 ## 環境變數 bucket name （選擇設定欓放在s3)
-- lab：<your-project-name>-dev-env-config
-- staging：<your-project-name>-staging-env-config
-- 正式機：<your-project-name>-prod-env-config
+- lab： < your-project-name > -dev-env-config
+- staging： < your-project-name > -staging-env-config
+- 正式機： < your-project-name > -prod-env-config
 
 ## 環境變數（選擇設定欓放在git)
 - local 環境，設定檔在config/local/development.js
