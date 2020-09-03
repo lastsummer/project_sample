@@ -16,21 +16,27 @@
 - 建立 nginx
 - 依照選擇的Script Type 建立專案
 
+## Script Type有分三種
+- Javascript
+- Typescript
+- Nuxt
+
 ## CI bucket name
 - lab： < your-project-name > -dev-api
 - staging： < your-project-name > -staging-api
 - 正式機： < your-project-name > -prod-api
 
-## 環境變數 bucket name （選擇設定欓放在s3)
+## 環境變數放置位置
+### S3，顯示為bucket name
 - lab： < your-project-name > -dev-env-config
 - staging： < your-project-name > -staging-env-config
 - 正式機： < your-project-name > -prod-env-config
+### Git，顯示為file name
+- local 環境，設定檔在config/.env.development
+- lab 環境，設定檔在config/.env.lab
+- staging 環境，設定檔在config/.env.staging
+- 正式機環境，設定檔在config/.env.production
 
-## 環境變數（選擇設定欓放在git)
-- local 環境，設定檔在config/local/development.js
-- lab 環境，設定檔在config/lab/production.js
-- staging 環境，設定檔在config/staging/production.js
-- 正式機環境，設定檔在config/prod/production.js
 
 ## server port (預設)
 - local：6565

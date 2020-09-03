@@ -1,0 +1,39 @@
+sudo: false
+dist: trusty
+language: node_js
+node_js:
+- '12'
+cache:
+  npm: true
+  directories:
+  - node_modules
+branches:
+  only:
+  - #replace-labBranch#
+  - #replace-stagingBranch#
+  - #replace-prodBranch#
+env:
+  global:
+before_install:
+- export TZ='Asia/Taipei'
+- pip install --user awscli
+- export PATH=$PATH:$HOME/.local/bin
+install:
+- npm i
+script:
+- ". ./.travis/setup.sh"
+- npm run build
+- npm run travis
+deploy:
+- provider: s3
+  local_dir: dist
+  access_key_id: "$AWS_ACCESS_KEY_ID"
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
+  bucket: "$app_bucket"
+  upload-dir: gud/api
+  region: ap-northeast-1
+  acl: private
+  skip_cleanup: true
+  on:
+    all_branches: true
+    condition: "$CAN_DEPLOY"
